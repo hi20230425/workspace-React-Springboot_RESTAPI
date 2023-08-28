@@ -1,0 +1,61 @@
+/* SQL Script */
+
+
+create database bbs; 
+
+use bbs; 
+
+/* 사용장 정보 */
+create table member (
+	id varchar(20) not null primary key,
+	pwd mediumtext,
+	name mediumtext,
+	email mediumtext
+);
+
+/* 게시판 테이블 */ 
+create table bbs (
+	seq int not null AUTO_INCREMENT primary key,
+	id mediumtext , 
+	ref decimal(8), 
+	step decimal(8),
+	depth decimal(8),
+	title mediumtext, 
+	content mediumtext, 
+	created_at timestamp, 
+	del decimal(1), 
+	read_count decimal(8) 
+
+); 
+
+/* 답변 테이블 : bbs의 자식 */ 
+create table comment (
+	seq int not null AUTO_INCREMENT primary key, 
+	id mediumtext,
+	content mediumtext,
+	bbs_seq int,     /*  Foreign key : bbs (seq) 컬럼 참조 */
+	created_at timestamp,
+	del int
+	 
+);
+
+/* 마지막 엑세스 날짜 기록 : read_history : bbs_seq , member_id 컬럼 참조  */ 
+create table read_history (
+	bbs_seq int ,    /* bbs_seq 컬럼 참조 */ 
+	id varchar(20),  /* member_id 컬럼 참조 */ 
+	latest_access_at timestamp 
+
+);
+
+/* alter table [테이블명] add foreign key( [컬럼명] ) references [참조한 테이블]( [참조할 컬럼명] ) [옵션]; */
+
+alter table comment add foreign key( bbs_seq ) references bbs( seq ) ;
+
+alter table read_history add foreign key( bbs_seq ) references bbs( seq ) ;
+alter table read_history add foreign key( id ) references member( id ) ;
+
+
+
+
+
+

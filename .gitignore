@@ -1,0 +1,8 @@
+# IntelliJ
+.idea
+
+# React
+node_modules
+
+# Images 
+readme-images
