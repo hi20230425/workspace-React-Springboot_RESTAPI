@@ -18,7 +18,8 @@ import org.springframework.stereotype.Repository;
 public interface BbsDao {
 
 	List<Bbs> getBbsSearchPageList(BbsListParam param);
-	Integer getBbsCount(BbsCountParam param);
+	//Integer getBbsCount(BbsCountParam param);
+	Integer getBbsCount(BbsListParam param);
 
 	Bbs getBbs(Integer seq);
 	Integer createBbsReadCountHistory(CreateReadCountParam param);

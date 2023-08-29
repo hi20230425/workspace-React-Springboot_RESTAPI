@@ -30,9 +30,14 @@
 	</select>
 
 	<!-- 글 총 개수 조회 -->
+	<!-- 
 	<select id="getBbsCount" parameterType="me.hellonayeon.backend.bbs.dto.param.BbsCountParam" resultType="Integer">
-
+	 -->
+	<select id="getBbsCount" parameterType="me.hellonayeon.backend.bbs.dto.param.BbsListParam" resultType="Integer">
+		<!--  
 		SELECT ifnull(count(*), 0)
+		-->
+		SELECT count(*)
 		FROM bbs
 		<if test="choice != null and choice != ''
 		 			and search != null and search != '' ">

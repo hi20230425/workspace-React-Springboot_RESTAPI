@@ -23,10 +23,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController
+@RestController         // RequestBody : Client에서 JSON를 받아서 Java의 객체에 넣음  , 
+						// ResponseBody : Server의 객체를 JSON 형태로 변환해서 Client 에게 전송 
 @RequestMapping("/bbs")
 public class BbsController {
 
+	
+	// DI : 생성자 주입 , 
 	private final BbsService service;
 
 	public BbsController(BbsService service) {
@@ -37,7 +40,7 @@ public class BbsController {
 	@GetMapping
 	public ResponseEntity<BbsListResponse> getBbsList(@ModelAttribute BbsListRequest req){
 		System.out.println("BbsController getBbsList() " + new Date());
-
+		
 		return ResponseEntity.ok(service.getBbsList(req));
 	}
 
@@ -53,7 +56,7 @@ public class BbsController {
 	@PostMapping
 	public ResponseEntity<CreateBbsResponse> createBbs(@RequestBody CreateBbsRequest req) {
 		System.out.println("BbsController createBbs " + new Date());
-
+		
 		return ResponseEntity.ok(service.createBbs(req));
 	}
 

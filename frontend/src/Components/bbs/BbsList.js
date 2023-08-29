@@ -23,9 +23,11 @@ function BbsList() {
 
 
 	/* [GET /bbs]: 게시글 목록 */
-	const getBbsList = async (choice, search, page) => {
+	const getBbsList = async (choiceVal, searchVal, page) => {
 
-		await axios.get("http://localhost:3000/bbs", { params: { "choice": choice, "search": search, "page": page } })
+	//	await axios.get("http://localhost:3000/bbs", { params: { "choice": choice, "search": search, "page": page } })
+		await axios.get("http://localhost:3000/bbs", { params: { "choice": choiceVal, "search": searchVal, "page": page } })
+			
 			.then((resp) => {
 				console.log("[BbsList.js] useEffect() success :D");
 				console.log(resp.data);

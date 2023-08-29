@@ -37,7 +37,10 @@ public class BbsService {
 		param.setPageParam(req.getPage(), 10);
 
 		List<Bbs> bbsList = dao.getBbsSearchPageList(param);
-		int pageCnt = dao.getBbsCount(new BbsCountParam(req));
+		//int pageCnt = dao.getBbsCount(new BbsCountParam(req));
+		int pageCnt = dao.getBbsCount(param);
+		
+		System.out.println("pageCnt : " + pageCnt);
 
 		return new BbsListResponse(bbsList, pageCnt);
 	}
