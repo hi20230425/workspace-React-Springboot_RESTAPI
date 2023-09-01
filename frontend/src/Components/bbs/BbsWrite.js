@@ -31,6 +31,8 @@ function BbsWrite() {
 			content: content
 		}
 
+		console.log (`Header 값 : ${headers.Authorization}`); 
+
 		await axios.post("http://localhost:3000/bbs", req, {headers: headers})
 		.then((resp) => {
 			console.log("[BbsWrite.js] createBbs() success :D");

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\workspace-React-Springboot_RESTAPI\backend\pom.xml"/>
 			<item value="C:\workspace-React-Springboot_RESTAPI\backend"/>
 		</list>
 		<list key="projectNameTemplate">

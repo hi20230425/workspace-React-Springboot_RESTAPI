@@ -63,7 +63,13 @@ public class BbsService {
 	/* 글 추가 */
 	public CreateBbsResponse createBbs(CreateBbsRequest req) {
 		CreateBbsParam param = new CreateBbsParam(req);
+		
+		//System.out.println("SEQ 의 값 : " + param.getSeq());
+		
 		dao.createBbs(param);
+		
+		//System.out.println("DAO 호출후 SEQ 의 값 : " + param.getSeq());
+		
 		return new CreateBbsResponse(param.getSeq());
 	}
 
