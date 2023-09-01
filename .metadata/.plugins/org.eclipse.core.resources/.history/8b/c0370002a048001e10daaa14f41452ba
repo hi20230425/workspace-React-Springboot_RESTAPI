@@ -79,9 +79,6 @@ public class MemberService {
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(req.getId());
 		final String token = jwtTokenUtil.generateToken(userDetails);
 
-		System.out.println("인증 성공 토큰 출력 : " + token);
-		System.out.println("아이디 출력 : " + req.getId());
-		
 		return new LoginResponse(token, req.getId());
 	}
 
